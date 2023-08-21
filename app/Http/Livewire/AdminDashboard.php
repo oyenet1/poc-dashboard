@@ -2,12 +2,18 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ServiceModel;
 use Livewire\Component;
 
 class AdminDashboard extends Component
 {
     public function render()
     {
-        return view('livewire.admin-dashboard');
+        $states = ServiceModel::
+            selectRaw('location as name, count(*) as services')
+            ->groupBy('location')
+            ->orderBy('services')
+            ->get();
+        return view('livewire.admin-dashboard', compact(['states']));
     }
 }

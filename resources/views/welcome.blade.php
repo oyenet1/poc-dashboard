@@ -1,8 +1,9 @@
-@extends('layouts.dashboard')
+{{-- @extends('layouts.dashboard')
 @section('title', 'welcome page')
-@section('content')
-    <div>
-        <i class="fas fa-facebook fa-2x  bg-red-500 text-right"></i>
-        <h3>Adeoluwa is a boy</h3>
-    </div>
-@endsection
+@section('content') --}}
+<div>
+    @foreach ($datas as $item)
+    <div>{{ $item }}</div>
+    @endforeach
+</div>
+{{-- @endsection --}}

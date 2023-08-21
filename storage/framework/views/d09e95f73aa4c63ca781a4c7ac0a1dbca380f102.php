@@ -11,20 +11,21 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    {!! SEO::generate() !!}
+    <?php echo SEO::generate(); ?>
+
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title' ?? config('app.name'))</title>
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <title><?php echo $__env->yieldContent('title' ?? config('app.name')); ?></title>
 
-    {{-- css  --}}
+    
 
-    {{-- css  --}}
+    
 
-    <link href="{{ mix('css/main.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script> --}}
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <link href="<?php echo e(mix('css/main.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
+    
+    <script src="<?php echo e(mix('js/app.js')); ?>" defer></script>
 
     <meta name="description" content="Adonis Abbey" />
 
@@ -59,8 +60,9 @@
         background: #009933;
       } */
     </style>
-    @livewireStyles
-    @stack('styles')
+    <?php echo \Livewire\Livewire::styles(); ?>
+
+    <?php echo $__env->yieldPushContent('styles'); ?>
   </head>
 
   <body>
@@ -72,8 +74,8 @@
           </a>
           <div class="navbar-item">
             <div class="control">
-              <p class="text-center text-xl capitalize">{{ greeting() . ', ' }} <span
-                  class="font-medium">{{ currentUser()->first_name }}</span></p>
+              <p class="text-center text-xl capitalize"><?php echo e(greeting() . ', '); ?> <span
+                  class="font-medium"><?php echo e(currentUser()->first_name); ?></span></p>
             </div>
           </div>
         </div>
@@ -87,13 +89,13 @@
             <div class="navbar-item dropdown has-divider has-user-avatar">
               <a class="navbar-link">
                 <div class="user-avatar">
-                  <img src="{{ asset('img/logo.png') }}" alt="{{ currentUser()->name }}" class="rounded-full" />
+                  <img src="<?php echo e(asset('img/logo.png')); ?>" alt="<?php echo e(currentUser()->name); ?>" class="rounded-full" />
                 </div>
-                <div class="is-user-name"><span>{{ currentUser()->name }}</span></div>
+                <div class="is-user-name"><span><?php echo e(currentUser()->name); ?></span></div>
                 <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
               </a>
               <div class="navbar-dropdown">
-                <a href="{{ route('profile') }}" class="navbar-item">
+                <a href="<?php echo e(route('profile')); ?>" class="navbar-item">
                   <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                       class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -114,17 +116,17 @@
                 </a>
                 <hr class="navbar-divider" />
                 <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                  class="navbar-item" href="{{ route('logout') }}">
+                  class="navbar-item" href="<?php echo e(route('logout')); ?>">
                   <span class="icon"><i class="mdi mdi-logout"></i></span>
                   <span>Log Out</span>
                 </a>
               </div>
-              <form class="logout-form hidden" id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
+              <form class="logout-form hidden" id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
               </form>
             </div>
             <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Log out"
-              class="navbar-item desktop-icon-only hover:text-secondary" href="{{ route('logout') }}">
+              class="navbar-item desktop-icon-only hover:text-secondary" href="<?php echo e(route('logout')); ?>">
               <span class="icon"><i class="mdi mdi-logout"></i></span>
               <span>Log out</span>
             </a>
@@ -136,13 +138,14 @@
         style="background-color: #223">
         <div class="aside-tools">
           <div class="mx-auto text-center font-black uppercase">
-            {{ config('app.name') }}
+            <?php echo e(config('app.name')); ?>
+
           </div>
         </div>
         <div class="menu is-menu-main space-y-1 overflow-y-auto">
-          {{-- <p class="px-4 py-2 capitalize"></p> --}}
+          
           <ul class="menu-list space-y-1">
-            <li class="{{ request()->is('*/home') ? 'active' : '' }}">
+            <li class="<?php echo e(request()->is('*/home') ? 'active' : ''); ?>">
               <a href="/">
                 <span class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -156,8 +159,8 @@
                 <span class="menu-item-label">Dashboard</span>
               </a>
             </li>
-            <li class="text-white {{ request()->is('profile') ? 'active' : '' }}">
-              <a href="{{ route('profile') }}" class="text-white">
+            <li class="text-white <?php echo e(request()->is('profile') ? 'active' : ''); ?>">
+              <a href="<?php echo e(route('profile')); ?>" class="text-white">
                 <span class="icon text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -174,7 +177,8 @@
       </aside>
 
       <main class="print:bg-white">
-        {{ $slot ?? '' }}
+        <?php echo e($slot ?? ''); ?>
+
       </main>
 
       <footer class="footer w-full bg-primary-dark text-white print:hidden">
@@ -188,7 +192,7 @@
 
 
           <div class="flex items-center justify-start space-x-3 uppercase">
-            <div>© All right reserved 2023 {{ config('app.name') }}</div>
+            <div>© All right reserved 2023 <?php echo e(config('app.name')); ?></div>
           </div>
         </div>
       </footer>
@@ -201,8 +205,9 @@
 
     <!-- Scripts below are for demo only -->
     <script type="text/javascript" src="/js/main.min.js"></script>
-    {{-- <script type="text/javascript" src="/js/main.js"></script> --}}
-    @livewireScripts
+    
+    <?php echo \Livewire\Livewire::scripts(); ?>
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
@@ -245,15 +250,15 @@
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> --}}
+    
     <script type="text/javascript" src="/js/chart.sample.min.js"></script>
 
     <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
 
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" />
-    @stack('scripts')
-    {{-- @yield('scripts') --}}
+    <?php echo $__env->yieldPushContent('scripts'); ?>
+    
   </body>
-  @stack('scripts')
+  <?php echo $__env->yieldPushContent('scripts'); ?>
 
-</html>
+</html><?php /**PATH /Users/user/Documents/projects/poc/resources/views/layouts/app.blade.php ENDPATH**/ ?>

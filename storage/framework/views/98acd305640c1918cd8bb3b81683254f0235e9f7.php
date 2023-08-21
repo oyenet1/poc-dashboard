@@ -1,23 +1,28 @@
 <div class="grid w-full gap-8 p-8 mx-auto xl:p-8 2xl:p-10 xl:gap-8 2xl:gap-10">
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:gap-8 2xl:gap-10">
-    @foreach ($states as $state)
-    <x-board color="green-600" name="{{ $state->name }}" digit="{{ $state->services }}">
+    <?php $__currentLoopData = $states; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $state): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if (isset($component)) { $__componentOriginal15802cba71b9a49a312c120e81efb512b75cd6c8 = $component; } ?>
+<?php $component = App\View\Components\Board::resolve(['color' => 'green-600','name' => ''.e($state->name).'','digit' => ''.e($state->services).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('board'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Board::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
 
-      {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 bi bi-journal-richtext 2xl:w-8 2xl:h-8"
-        viewBox="0 0 16 16">
-        <path
-          d="M7.5 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047L11 4.75V7a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 7v-.5s1.54-1.274 1.639-1.208zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
-        <path
-          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-        <path
-          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-      </svg> --}}
-    </x-board>
-    @endforeach
+      
+     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal15802cba71b9a49a312c120e81efb512b75cd6c8)): ?>
+<?php $component = $__componentOriginal15802cba71b9a49a312c120e81efb512b75cd6c8; ?>
+<?php unset($__componentOriginal15802cba71b9a49a312c120e81efb512b75cd6c8); ?>
+<?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   </div>
-  <div class="">
+  <div>
     <div class="col-md-3">
       <span id="count1" class="display-4"></span>
     </div>
@@ -46,7 +51,7 @@
   </div>
 </div>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
 <script>
   var xValues = ["January"
   , "February"
@@ -76,7 +81,7 @@
   , options: {
    title: {
     display: true
-    , text: "{{ strtoupper('Consulatation data') }}"
+    , text: "<?php echo e(strtoupper('Consulatation data')); ?>"
    , },
 
   }
@@ -84,9 +89,9 @@
 
 </script>
 <script>
-  var xValues = ["{{ fake()->name }}", "{{ fake()->name }}", "{{ fake()->name }}", "{{ fake()->name }}"
-  , "{{ fake()->name }}", "{{ fake()->name }}", "{{ fake()->name }}"
-  , "{{ fake()->name }}", "{{ fake()->name }}"
+  var xValues = ["<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>"
+  , "<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>"
+  , "<?php echo e(fake()->name); ?>", "<?php echo e(fake()->name); ?>"
  ];
  var yValues = [55, 49, 44, 24, 15, 12, 56, 78, 5, 34, 67, 90];
  var barColors = ["#199f47", '#f98677', '#f9f677', '#398677', '#a9ff77', '#398ff7'
@@ -109,7 +114,7 @@
   , options: {
    title: {
     display: true
-    , text: "{{ strtoupper('Sales peformance of author') }}"
+    , text: "<?php echo e(strtoupper('Sales peformance of author')); ?>"
    , },
 
   }
@@ -180,4 +185,4 @@
  });
 
 </script>
-@endpush
+<?php $__env->stopPush(); ?><?php /**PATH /Users/user/Documents/projects/poc/resources/views/livewire/admin-dashboard.blade.php ENDPATH**/ ?>

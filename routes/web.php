@@ -16,27 +16,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        return toDashboard();
+        return redirect('administrator/home');
     }
     return view('auth.login');
 });
 
-Route::view('/sales', 'layouts.dashboard');
-
-/* ----------------admin only route ------------*/
-Route::group(['prefix' => 'consultations', 'middleware' => ['auth', 'role:superadmin|administrator']], function () {
-    Route::get('/patients', \App\Http\Livewire\Patients\Index::class)->name('patients.index');
-    Route::get('/inventories', \App\Http\Livewire\Inventory\Index::class)->name('inventories.index');
-    Route::get('/doctors', \App\Http\Livewire\Users::class)->name('doctors');
-    Route::get('records', \App\Http\Livewire\Consultation\Index::class)->name('consultations.index');
-    Route::get('/create', \App\Http\Livewire\Consultation\Create::class)->name('consultations.create');
-    Route::get('/invoice/{invoice}', \App\Http\Livewire\Consultation\Show::class)->name('consultations.invoice');
+Route::get('/test', function () {
+    return \App\Models\ServiceModel::selectRaw('location as state,count(*) as services')->groupBy('location')->orderBy('location')->pluck('state', 'services');
+    // return \App\Models\ServiceModel::orderBy('location')->distinct('location')->count();
 });
 
-Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->middleware('role:superadmin|administrator');
+/* ----------------admin only route ------------*/
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+});
+
+Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->middleware('auth');
 
 
 Route::get('/home', function () {
-    return toDashboard();
+    return redirect('administrator/home');
 })->name('home')->middleware('auth');
 Route::get('/profile', App\Http\Livewire\ImageUpload::class)->name('profile')->middleware('auth');
