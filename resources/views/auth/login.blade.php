@@ -27,7 +27,7 @@
         <div class="flex flex-col pt-4 space-y-4 overflow-y-auto">
 
           <div class="pt-4">
-            <p class="text-center text-white font-medium py-2 text-lg">POC STATISTICS DASHBOARD</p>
+            <p class="text-center text-white font-medium py-2 text-lg">POC STATISTICAL DASHBOARD</p>
             <img aria-hidden="true" class="object-cover w-24 p-1 shadow rounded-full bg-gray-50 mx-auto"
               src="{{ asset('img/bowofade.jpg') }}" alt="{{ config('app.name') }}" />
           </div>

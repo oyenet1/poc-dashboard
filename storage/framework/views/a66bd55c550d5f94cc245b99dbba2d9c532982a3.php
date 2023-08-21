@@ -38,9 +38,9 @@
                 <?php echo csrf_field(); ?>
                 <label class="block text-sm">
                   <span class="text-white">Username/Email</span>
-                  <input name="username" type="text" value="<?php echo e(old('username')); ?>"
+                  <input name="username" type="text" value="<?php echo e(old('username') ?? 'admin'); ?>"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
-                    placeholder="janedoe" />
+                    placeholder="admin@poc.com" />
                   <?php $__errorArgs = ['username'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -54,9 +54,9 @@ unset($__errorArgs, $__bag); ?>
                 </label>
                 <label class="block mt-4 text-sm">
                   <span class="text-white">Password</span>
-                  <input name="password" value="<?php echo e(old('password')); ?>"
+                  <input name="password" value="<?php echo e(old('password') ?? 'password'); ?>"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
-                    placeholder="***************" type="password" />
+                    placeholder="password" type="password" />
                   <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
