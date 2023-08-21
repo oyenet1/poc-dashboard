@@ -56,6 +56,9 @@ module.exports = {
             },
             backgroundImage: {
                 'one': "url('/img/bg1.jpeg')",
+                'two': "url('/img/bg-car.jpeg')",
+                'three': "url('/img/bg-d.jpeg')",
+                'four': "url('/img/bg - car1.jpeg')",
             }
         },
         themeVariants: ['light'],

@@ -20,14 +20,14 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   </head>
 
-  <body class="bg-one bg-cover bg-center">
-    <div class="relative flex items-center min-h-screen p-6 bg-primary-dark bg-opacity-50">
+  <body class="bg-two bg-cover bg-center">
+    <div class="relative z-20 flex items-center min-h-screen p-6 bg-primary-dark bg-opacity-50">
 
-      <div class="flex-1 h-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-xl">
+      <div class="flex-1 h-full z-30 max-w-md mx-auto overflow-hidden bg-black bg-opacity-50 rounded-lg shadow-xl">
         <div class="flex flex-col pt-4 space-y-4 overflow-y-auto">
 
           <div class="pt-4">
-            <p class="text-center font-medium py-2 text-lg">POC STATISTICS DASHBOARD</p>
+            <p class="text-center text-white font-medium py-2 text-lg">POC STATISTICS DASHBOARD</p>
             <img aria-hidden="true" class="object-cover w-24 p-1 shadow rounded-full bg-gray-50 mx-auto"
               src="{{ asset('img/bowofade.jpg') }}" alt="{{ config('app.name') }}" />
           </div>
@@ -37,19 +37,19 @@
               <form action="{{ route('login') }}" method="post">
                 @csrf
                 <label class="block text-sm">
-                  <span class="text-gray-600">Username/Email</span>
-                  <input name="username" type="text" value="{{ old('username') }}"
+                  <span class="text-white">Username/Email</span>
+                  <input name="username" type="text" value="{{ old('username') ?? 'admin' }}"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
-                    placeholder="janedoe" />
+                    placeholder="admin@poc.com" />
                   @error('username')
                   <span class="text-sm font-normal text-red-600">{{ $message }}</span>
                   @enderror
                 </label>
                 <label class="block mt-4 text-sm">
-                  <span class="text-gray-600">Password</span>
-                  <input name="password" value="{{ old('password') }}"
+                  <span class="text-white">Password</span>
+                  <input name="password" value="{{ old('password') ?? 'password' }}"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
-                    placeholder="***************" type="password" />
+                    placeholder="password" type="password" />
                   @error('password')
                   <span class="text-sm font-normal text-red-600">{{ $message }}</span>
                   @enderror
@@ -70,8 +70,8 @@
               </form>
 
               <hr class="my-8" />
-              <p class="text-center text-sm p-2 shadow-sm rounded border">Designed and Developed by <a
-                  href="https://bowofade.com" target="_blank" class="text-secondary">Networker</a></p>
+              <p class="text-center text-white text-sm p-2 shadow-sm rounded border">Designed and Developed by <a
+                  href="https://bowofade.com" target="_blank" class="text-secondary font-medium">Networker</a></p>
             </div>
           </div>
         </div>

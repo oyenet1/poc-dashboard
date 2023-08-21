@@ -1591,9 +1591,6 @@ a.active {
 .bg-three {
     background-image: url("/img/bg-car1.jpeg");
 }
-.bg-four {
-    background-image: url("/img/bg-car2.jpeg");
-}
 .bg-cover {
     background-size: cover;
 }
