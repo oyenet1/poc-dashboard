@@ -11,20 +11,20 @@
   <link rel="apple-touch-icon" href="apple-icon.png')}}">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/font-awesome/css/font-awesome.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/themify-icons/css/themify-icons.css')}}">
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/selectFX/css/cs-skin-elastic.css')}}">
-  <link rel="stylesheet" href="{{ asset('dashboard/vendors/jqvmap/dist/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/bootstrap/dist/css/bootstrap.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/font-awesome/css/font-awesome.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/themify-icons/css/themify-icons.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/flag-icon-css/css/flag-icon.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/selectFX/css/cs-skin-elastic.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/vendors/jqvmap/dist/jqvmap.min.css')); ?>">
 
 
-  <link rel="stylesheet" href="{{asset('dashboard/css/style.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('dashboard/css/style.css')); ?>">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
  </head>
- <meta name="csrf-token" content="{{ csrf_token() }}">
+ <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
  <body>
 
@@ -39,8 +39,8 @@
       aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa fa-bars"></i>
      </button>
-     <a class="navbar-brand" href="./"><img src="{{ asset('dashboard/images/logo.png')}}" alt="Logo"></a>
-     <a class="navbar-brand hidden" href="./"><img src="{{ asset('dashboard/images/logo2.png')}}" alt="Logo"></a>
+     <a class="navbar-brand" href="./"><img src="<?php echo e(asset('dashboard/images/logo.png')); ?>" alt="Logo"></a>
+     <a class="navbar-brand hidden" href="./"><img src="<?php echo e(asset('dashboard/images/logo2.png')); ?>" alt="Logo"></a>
     </div>
 
     <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -183,7 +183,7 @@
         <div class="dropdown-menu" aria-labelledby="message">
          <p class="red">You have 4 Mails</p>
          <a class="dropdown-item media bg-flat-color-1" href="#">
-          <span class="photo media-left"><img alt="avatar" src="{{ asset('dashboard/images/avatar/1.jpg')}}"></span>
+          <span class="photo media-left"><img alt="avatar" src="<?php echo e(asset('dashboard/images/avatar/1.jpg')); ?>"></span>
           <span class="message media-body">
            <span class="name float-left">Jonathan Smith</span>
            <span class="time float-right">Just now</span>
@@ -191,7 +191,7 @@
           </span>
          </a>
          <a class="dropdown-item media bg-flat-color-4" href="#">
-          <span class="photo media-left"><img alt="avatar" src="{{ asset('dashboard/images/avatar/2.jpg')}}"></span>
+          <span class="photo media-left"><img alt="avatar" src="<?php echo e(asset('dashboard/images/avatar/2.jpg')); ?>"></span>
           <span class="message media-body">
            <span class="name float-left">Jack Sanders</span>
            <span class="time float-right">5 minutes ago</span>
@@ -199,7 +199,7 @@
           </span>
          </a>
          <a class="dropdown-item media bg-flat-color-5" href="#">
-          <span class="photo media-left"><img alt="avatar" src="{{ asset('dashboard/images/avatar/3.jpg')}}"></span>
+          <span class="photo media-left"><img alt="avatar" src="<?php echo e(asset('dashboard/images/avatar/3.jpg')); ?>"></span>
           <span class="message media-body">
            <span class="name float-left">Cheryl Wheeler</span>
            <span class="time float-right">10 minutes ago</span>
@@ -207,7 +207,7 @@
           </span>
          </a>
          <a class="dropdown-item media bg-flat-color-3" href="#">
-          <span class="photo media-left"><img alt="avatar" src="{{ asset('dashboard/images/avatar/4.jpg')}}"></span>
+          <span class="photo media-left"><img alt="avatar" src="<?php echo e(asset('dashboard/images/avatar/4.jpg')); ?>"></span>
           <span class="message media-body">
            <span class="name float-left">Rachel Santos</span>
            <span class="time float-right">15 minutes ago</span>
@@ -222,7 +222,7 @@
      <div class="col-sm-5">
       <div class="user-area dropdown float-right">
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img class="user-avatar rounded-circle" src="{{ asset('dashboard/images/admin.jpg')}}" alt="User Avatar">
+        <img class="user-avatar rounded-circle" src="<?php echo e(asset('dashboard/images/admin.jpg')); ?>" alt="User Avatar">
        </a>
 
        <div class="user-menu dropdown-menu">
@@ -584,7 +584,7 @@
        <div class="media">
         <a href="#">
          <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt=""
-          src="{{ asset('dashboard/images/admin.jpg')}}">
+          src="<?php echo e(asset('dashboard/images/admin.jpg')); ?>">
         </a>
         <div class="media-body">
          <h2 class="text-white display-6">Jim Doe</h2>
@@ -682,18 +682,18 @@
    </div> <!-- .content -->
   </div>
 
-  <script src="{{ asset('dashboard/vendors/jquery/dist/jquery.min.js')}}"></script>
-  <script src="{{ asset('dashboard/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
-  <script src="{{ asset('dashboard/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-  <script src="{{ asset('dashboard/assets/js/main.js')}}"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/jquery/dist/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/popper.js/dist/umd/popper.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/bootstrap/dist/js/bootstrap.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/assets/js/main.js')); ?>"></script>
 
 
-  <script src="{{ asset('dashboard/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
-  <script src="{{ asset('dashboard/assets/js/dashboard.js')}}"></script>
-  <script src="{{ asset('dashboard/assets/js/widgets.js')}}"></script>
-  <script src="{{ asset('dashboard/vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
-  <script src="{{ asset('dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-  <script src="{{ asset('dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/chart.js/dist/Chart.bundle.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/assets/js/dashboard.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/assets/js/widgets.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/jqvmap/dist/jquery.vmap.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')); ?>"></script>
+  <script src="<?php echo e(asset('dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js')); ?>"></script>
   <script>
    (function($) {
           "use strict";
@@ -712,7 +712,7 @@
           });
       })(jQuery);
   </script>
-  @stack('scripts')
+  <?php echo $__env->yieldPushContent('scripts'); ?>
  </body>
 
-</html>
+</html><?php /**PATH /Users/user/Documents/projects/poc/resources/views/layouts/second-layout.blade.php ENDPATH**/ ?>

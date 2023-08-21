@@ -22,7 +22,7 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   </div>
-  <div>
+  <div class="">
     <div class="col-md-3">
       <span id="count1" class="display-4"></span>
     </div>

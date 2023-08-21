@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return \App\Models\ServiceModel::selectRaw('location as state,count(*) as services')->groupBy('location')->orderBy('location')->pluck('state', 'services');
+    return view('layouts.dashboard');
     // return \App\Models\ServiceModel::orderBy('location')->distinct('location')->count();
 });
 
