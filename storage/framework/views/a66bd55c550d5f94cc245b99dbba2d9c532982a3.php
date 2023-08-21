@@ -13,11 +13,11 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>Login - {{ config('app.name') }} </title>
+    <title>Login - <?php echo e(config('app.name')); ?> </title>
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
   </head>
 
   <body class="bg-one bg-cover bg-center">
@@ -29,34 +29,48 @@
           <div class="pt-4">
             <p class="text-center font-medium py-2 text-lg">POC STATISTICS DASHBOARD</p>
             <img aria-hidden="true" class="object-cover w-24 p-1 shadow rounded-full bg-gray-50 mx-auto"
-              src="{{ asset('img/bowofade.jpg') }}" alt="{{ config('app.name') }}" />
+              src="<?php echo e(asset('img/bowofade.jpg')); ?>" alt="<?php echo e(config('app.name')); ?>" />
           </div>
           <div class="flex items-center justify-center px-6 pt-0 pb-6 sm:p-12 sm:pt-0">
             <div class="w-full">
 
-              <form action="{{ route('login') }}" method="post">
-                @csrf
+              <form action="<?php echo e(route('login')); ?>" method="post">
+                <?php echo csrf_field(); ?>
                 <label class="block text-sm">
                   <span class="text-gray-600">Username/Email</span>
-                  <input name="username" type="text" value="{{ old('username') }}"
+                  <input name="username" type="text" value="<?php echo e(old('username')); ?>"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
                     placeholder="janedoe" />
-                  @error('username')
-                  <span class="text-sm font-normal text-red-600">{{ $message }}</span>
-                  @enderror
+                  <?php $__errorArgs = ['username'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                  <span class="text-sm font-normal text-red-600"><?php echo e($message); ?></span>
+                  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </label>
                 <label class="block mt-4 text-sm">
                   <span class="text-gray-600">Password</span>
-                  <input name="password" value="{{ old('password') }}"
+                  <input name="password" value="<?php echo e(old('password')); ?>"
                     class="block w-full mt-1 text-sm form-input focus:border-primary focus:outline-none"
                     placeholder="***************" type="password" />
-                  @error('password')
-                  <span class="text-sm font-normal text-red-600">{{ $message }}</span>
-                  @enderror
+                  <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                  <span class="text-sm font-normal text-red-600"><?php echo e($message); ?></span>
+                  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </label>
                 <p class="text-right">
                   <a class="text-sm font-medium text-right text-secondary hover:underline"
-                    href="{{ route('password.request') }}">
+                    href="<?php echo e(route('password.request')); ?>">
                     Forgot your password?
                   </a>
                 </p>
@@ -80,4 +94,4 @@
     </div>
   </body>
 
-</html>
+</html><?php /**PATH /Users/user/Documents/projects/poc/resources/views/auth/login.blade.php ENDPATH**/ ?>
