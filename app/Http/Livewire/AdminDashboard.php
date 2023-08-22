@@ -12,8 +12,8 @@ class AdminDashboard extends Component
         $states = ServiceModel::
             selectRaw('location as name, count(*) as services')
             ->groupBy('location')
-            ->orderBy('services')
+            ->orderByDesc('services')
             ->get();
-        return view('livewire.admin-dashboard', compact(['states']));
+        return view('livewire.admin-dashboard', compact(['states']))->layout('layouts.dashboard');
     }
 }

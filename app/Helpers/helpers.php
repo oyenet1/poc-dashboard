@@ -7,6 +7,26 @@ function formatDate($date)
     return $date;
 }
 
+function getIndex($val)
+{
+    $num = $val % 4;
+    switch ($num) {
+        case 0:
+            $num = 1;
+            break;
+        case 1:
+            $num = 2;
+            break;
+        case 2:
+            $num = 3;
+            break;
+        default:
+            $num = 4;
+            break;
+    }
+    return $num;
+}
+
 
 // borrowers date return function
 function returnDate($date)
