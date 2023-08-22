@@ -27,6 +27,19 @@ function getIndex($val)
     return $num;
 }
 
+function getServiceName($val)
+{
+    if ($val == 1) {
+        return "Vehicle License";
+    } else if ($val == 2) {
+        return "Proof of Ownership Certificate";
+    } else if ($val == 3) {
+        return "Computerized Vehicle Inspection";
+    } else {
+        return "Roadworthiness Certificate";
+    }
+}
+
 
 // borrowers date return function
 function returnDate($date)
@@ -74,18 +87,15 @@ function moneyFormat($money)
     return $salary;
 }
 
-function performance($initial, $final)
+function returnArr($val): array
 {
-    $change = $initial - $final;
-    $percent = round(($change / $initial) * 100);
-    return $percent . '%';
-}
-
-function totalConsultationFee($inventories, $consultationFee): float
-{
-    $sum = 0;
-    foreach ($inventories as $item) {
-        $sum += $item->price * $item->pivot->quantity;
+    $arr = [];
+    for ($i = 0; $i < 12; $i++) {
+        if (array_key_exists($i, $val)) {
+            array_push($arr, $val[$i]);
+        } else {
+            array_push($arr, 0);
+        }
     }
-    return floatval($sum + $consultationFee);
+    return $arr;
 }

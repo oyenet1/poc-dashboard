@@ -25,7 +25,7 @@
         <p class="text-light"><?php echo e($state->name); ?></p>
 
         <div class="chart-wrapper px-0" style="height:70px;" height="70">
-          <canvas id="<?php echo e('widgetChart'. getIndex($key+1)); ?>"></canvas>
+          <canvas id="<?php echo e('widgetChart'. $key+1); ?>"></canvas>
         </div>
 
       </div>
@@ -43,7 +43,7 @@
 
 <?php $__env->startPush('scripts'); ?>
 <script>
-  var xValues = <?php echo json_encode($stateName); ?>;
+  var xValues = <?php echo e(\Illuminate\Support\Js::from($stateName)); ?>;
   var yValues = <?php echo e(json_encode($values)); ?>;
 var barColors = [
   "#b91d47",

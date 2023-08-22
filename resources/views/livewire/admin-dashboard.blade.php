@@ -34,7 +34,7 @@
         <p class="text-light">{{ $state->name }}</p>
 
         <div class="chart-wrapper px-0" style="height:70px;" height="70">
-          <canvas id="{{ 'widgetChart'. getIndex($key+1) }}"></canvas>
+          <canvas id="{{ 'widgetChart'. $key+1 }}"></canvas>
         </div>
 
       </div>
@@ -52,7 +52,7 @@
 
 @push('scripts')
 <script>
-  var xValues = {!! json_encode($stateName) !!};
+  var xValues = {{  \Illuminate\Support\Js::from($stateName)  }};
   var yValues = {{ json_encode($values) }};
 var barColors = [
   "#b91d47",

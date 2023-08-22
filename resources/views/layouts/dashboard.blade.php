@@ -53,12 +53,21 @@
                             <a href="/home"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                         </li>
                         <h3 class="menu-title">Panel</h3>
+                        @php
+                        $states =
+                        \App\Models\ServiceModel::select('location')->distinct('location')->orderBy('location')->get();
+                        @endphp
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
+                                aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>States</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
+                                @foreach ($states as $item)
+                                <li class="text-capitalize">
+                                    <i class="fa fa-id-badge"></i>
+                                    <a href="{{ route('state', $item->location) }}">{{ $item->location }}</a>
+                                </li>
+                                @endforeach
+                                {{-- <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
                                 <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
                                 <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Social
                                         Buttons</a></li>
@@ -68,7 +77,7 @@
                                 <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
                                 <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
                                 <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li> --}}
                             </ul>
                         </li>
                     </ul>
