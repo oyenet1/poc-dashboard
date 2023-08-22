@@ -22,16 +22,22 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('layouts.dashboard');
+    return \App\Models\ServiceModel::
+        selectRaw('location as name, count(*) as services')
+        ->groupBy('location')
+        ->orderByDesc('services')
+        ->pluck('name');
+    // ->values()
+    // ->toArray();
     // return \App\Models\ServiceModel::orderBy('location')->distinct('location')->count();
 });
 
 /* ----------------admin only route ------------*/
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->name('dashboard');
+    Route::get('/state/{state:location}', App\Http\Livewire\States::class)->name('state');
 });
 
-Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->middleware('auth');
 
 
 Route::get('/home', function () {

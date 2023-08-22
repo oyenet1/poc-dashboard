@@ -14,6 +14,20 @@ class AdminDashboard extends Component
             ->groupBy('location')
             ->orderByDesc('services')
             ->get();
-        return view('livewire.admin-dashboard', compact(['states']))->layout('layouts.dashboard');
+        $values = ServiceModel::
+            selectRaw('location as name, count(*) as services')
+            ->groupBy('location')
+            ->orderByDesc('services')
+            ->pluck('services', 'name')
+            ->values();
+        $stateName = ServiceModel::
+            selectRaw('location as name, count(*) as services')
+            ->groupBy('location')
+            ->orderByDesc('services')
+            ->pluck('name')
+            ->values()
+            ->toArray();
+        // ->values();
+        return view('livewire.admin-dashboard', compact(['states', 'values', 'stateName']))->layout('layouts.dashboard');
     }
 }

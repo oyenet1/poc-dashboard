@@ -43,8 +43,8 @@
                         aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand hidden" href="./">POC</a>
-                    <a class="navbar-brand" href="./"><?php echo e(config('app.name')); ?></a>
+                    <a class="navbar-brand hidden" href="/">POC</a>
+                    <a class="navbar-brand" href="/"><?php echo e(config('app.name')); ?></a>
                 </div>
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -205,16 +205,16 @@
             <div class="breadcrumbs">
                 <div class="col-sm-4">
                     <div class="page-header float-left">
-                        <div class="page-title">
+                        <a href="<?php echo e(route('dashboard')); ?>" class="page-title">
                             <h1>Dashboard</h1>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="page-header float-right">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li class="active">Dashboard</li>
+                                <li class="active"><?php echo e(Route::currentRouteName()); ?></li>
                             </ol>
                         </div>
                     </div>
@@ -256,7 +256,7 @@
             });
         })(jQuery);
         </script>
-
+        <?php echo $__env->yieldPushContent('scripts'); ?>
     </body>
 
 </html><?php /**PATH /Users/user/Documents/projects/poc/resources/views/layouts/dashboard.blade.php ENDPATH**/ ?>
