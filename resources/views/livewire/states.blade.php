@@ -25,7 +25,7 @@
             <p class=" text-dark font-weight-bold"
                 style="font-size:24px; display:flex; align-items:center; justify-content:space-between;">
                 <span>
-                    Yearly Stats</span>
+                    This Year Stats</span>
                 <span class="rounded p-2" style="font-size:20px;">Total: {{ $total }}</span>
                 {{-- <select wire:model="year" class="p-2 rounded border shadow-sm" style="font-size:18px;">
                     @for ($i = 0; $i < 10; $i++) <option value="{{ date('Y') - $i }}">{{ date('Y') - $i }}</option>

@@ -23,7 +23,7 @@ class States extends Component
             ->orderBy('number')
             ->get();
 
-        $total = ServiceModel::where('location', $this->state->location)->count();
+        $total = ServiceModel::where('location', $this->state->location)->whereYear('createdAt', $this->year)->count();
 
         $months = ServiceModel::
             whereYear('createdAt', $this->year)

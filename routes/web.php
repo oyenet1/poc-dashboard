@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('administrator/home');
-    }
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     if (Auth::check()) {
+//         return redirect('administrator/home');
+//     }
+//     return view('auth.login');
+// });
+
+Route::get('/', App\Http\Livewire\AdminDashboard::class)->name('dashboard');
+Route::get('/state/{state:location}', App\Http\Livewire\States::class)->name('state');
 
 Route::get('/test', function () {
     $mon = \App\Models\ServiceModel::
@@ -35,9 +38,9 @@ Route::get('/test', function () {
 });
 
 /* ----------------admin only route ------------*/
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->name('dashboard');
-    Route::get('/state/{state:location}', App\Http\Livewire\States::class)->name('state');
+Route::group(['middleware' => ['auth', 'web']], function () {
+    // Route::get('/administrator/home', App\Http\Livewire\AdminDashboard::class)->name('dashboard');
+    // Route::get('/state/{state:location}', App\Http\Livewire\States::class)->name('state');
 });
 
 

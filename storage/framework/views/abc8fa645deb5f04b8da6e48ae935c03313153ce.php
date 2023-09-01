@@ -27,7 +27,7 @@
             <p class=" text-dark font-weight-bold"
                 style="font-size:24px; display:flex; align-items:center; justify-content:space-between;">
                 <span>
-                    Yearly Stats</span>
+                    This Year Stats</span>
                 <span class="rounded p-2" style="font-size:20px;">Total: <?php echo e($total); ?></span>
                 
             </p>
