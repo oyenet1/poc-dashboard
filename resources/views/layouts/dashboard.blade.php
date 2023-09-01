@@ -98,7 +98,7 @@
 
                     <div class="col-sm-7">
                         <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                        <div class="header-left">
+                        {{-- <div class="header-left">
                             <button class="search-trigger"><i class="fa fa-search"></i></button>
                             <div class="form-inline">
                                 <form class="search-form">
@@ -108,7 +108,7 @@
                                 </form>
                             </div>
 
-                            <div class="dropdown for-notification">
+                             <div class="dropdown for-notification">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-bell"></i>
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown for-message">
+                            {{-- <div class="dropdown for-message">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="message"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="ti-email"></i>
@@ -177,7 +177,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="col-sm-5">
