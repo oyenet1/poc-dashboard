@@ -22,13 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return \App\Models\ServiceModel::
-        selectRaw('location as name, count(*) as services')
-        ->groupBy('location')
-        ->orderByDesc('services')
-        ->pluck('name');
-    // ->values()
-    // ->toArray();
+    $mon = \App\Models\ServiceModel::
+        whereYear('createdAt', 2023)
+        ->where('location', 'Ogun')
+        ->selectRaw('month(createdAt) as month, count(*) as count')
+        ->groupBy('month')
+        ->orderBy('month')
+        ->pluck('count', 'month')
+        ->toArray();
+    return returnArr($mon);
     // return \App\Models\ServiceModel::orderBy('location')->distinct('location')->count();
 });
 

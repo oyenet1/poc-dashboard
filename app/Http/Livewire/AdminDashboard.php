@@ -11,11 +11,13 @@ class AdminDashboard extends Component
     {
         $states = ServiceModel::
             selectRaw('location as name, count(*) as services')
+            ->where('serviceCode', 4)
             ->groupBy('location')
             ->orderByDesc('services')
             ->get();
         $values = ServiceModel::
             selectRaw('location as name, count(*) as services')
+            ->where('serviceCode', 4)
             ->groupBy('location')
             ->orderByDesc('services')
             ->pluck('services', 'name')

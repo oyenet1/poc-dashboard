@@ -22,6 +22,7 @@ class States extends Component
             ->groupBy('serviceCode')
             ->orderBy('number')
             ->get();
+
         $total = ServiceModel::where('location', $this->state->location)->count();
 
         $months = ServiceModel::

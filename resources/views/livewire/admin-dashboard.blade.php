@@ -13,40 +13,28 @@
 
   @foreach ($states as $key => $state)
   <div class="col-sm-6 col-lg-3">
-    <div class="card text-white {{ 'bg-flat-color-'. random_int(1,7) }}">
+    <a href="{{ route('state', $state->name) }}" class="card text-white {{ 'bg-flat-color-'. random_int(1,7) }}">
       <div class="card-body pb-0">
         <div class="dropdown float-right">
-          <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
-            id="dropdownMenuButton1" data-toggle="dropdown">
-            <i class="fa fa-cog"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <div class="dropdown-menu-content">
-              <a class="dropdown-item" href="{{ route('state', $state->name) }}">Visit State</a>
-              {{-- <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a> --}}
-            </div>
-          </div>
+          <span>{{ $state->name }}</span>
         </div>
         <h4 class="mb-0">
           <span class="count">{{ $state->services }}</span>
         </h4>
-        <p class="text-light">{{ $state->name }}</p>
+        <div class="w-100 py-4" style="font-size: 16px; text-wrap:nowrap; font-weight:500">Proof of Ownership</div>
 
-        <div class="chart-wrapper px-0" style="height:70px;" height="70">
+        {{-- <div class="chart-wrapper px-0" style="height:70px;" height="70">
           <canvas id="{{ 'widgetChart'. $key+1 }}"></canvas>
-        </div>
-
-      </div>
-
-    </div>
+      </div> --}}
   </div>
-  @endforeach
-  <div class="p-3 w-100">
-    <div class="col-sm-12 rounded bg-white p-2">
-      <canvas id="myChart"></canvas>
-    </div>
+  </a>
+</div>
+@endforeach
+<div class="p-3 w-100">
+  <div class="col-sm-12 rounded bg-white p-2">
+    <canvas id="myChart"></canvas>
   </div>
+</div>
 
 </div>
 

@@ -32,11 +32,11 @@ function getServiceName($val)
     if ($val == 1) {
         return "Vehicle License";
     } else if ($val == 2) {
-        return "Proof of Ownership Certificate";
+        return "Roadworthiness Certificate";
     } else if ($val == 3) {
         return "Computerized Vehicle Inspection";
     } else {
-        return "Roadworthiness Certificate";
+        return "Proof of Ownership Certificate";
     }
 }
 
@@ -90,7 +90,7 @@ function moneyFormat($money)
 function returnArr($val): array
 {
     $arr = [];
-    for ($i = 0; $i < 12; $i++) {
+    for ($i = 1; $i <= 12; $i++) {
         if (array_key_exists($i, $val)) {
             array_push($arr, $val[$i]);
         } else {
