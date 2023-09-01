@@ -14,14 +14,14 @@
   @foreach ($vehicles as $key => $state)
   <div class="col-sm-6 col-lg-3">
     <a href="{{ route('state', $state->name) }}" class="card text-white {{ 'bg-flat-color-'. random_int(1,7) }}">
-      <div class="card-body pb-0">
+      <div class="card-body pb-0" style="font-size: 22px; text-wrap:nowrap;">
         <div class="dropdown float-right">
           <span>{{ $state->name }}</span>
         </div>
-        <h4 class="mb-0">
-          <span class="count">{{ $state->services }}</span>
+        <h4 class="my-0 pt-0">
+          <span class="count" style="font-size: 22px; text-wrap:nowrap;">{{ $state->services }}</span>
         </h4>
-        <div class="w-100 py-4" style="font-size: 18px; text-wrap:nowrap; font-weight:500">Vehicles</div>
+        <div class="w-100 py-4">Vehicles</div>
 
         {{-- <div class="chart-wrapper px-0" style="height:70px;" height="70">
           <canvas id="{{ 'widgetChart'. $key+1 }}"></canvas>

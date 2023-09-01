@@ -6,14 +6,14 @@
   <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $state): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   <div class="col-sm-6 col-lg-3">
     <a href="<?php echo e(route('state', $state->name)); ?>" class="card text-white <?php echo e('bg-flat-color-'. random_int(1,7)); ?>">
-      <div class="card-body pb-0">
+      <div class="card-body pb-0" style="font-size: 22px; text-wrap:nowrap;">
         <div class="dropdown float-right">
           <span><?php echo e($state->name); ?></span>
         </div>
-        <h4 class="mb-0">
-          <span class="count"><?php echo e($state->services); ?></span>
+        <h4 class="my-0 pt-0">
+          <span class="count" style="font-size: 22px; text-wrap:nowrap;"><?php echo e($state->services); ?></span>
         </h4>
-        <div class="w-100 py-4" style="font-size: 18px; text-wrap:nowrap; font-weight:500">Vehicles</div>
+        <div class="w-100 py-4">Vehicles</div>
 
         
   </div>
