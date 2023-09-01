@@ -11,7 +11,7 @@
   </div> --}}
 
 
-  @foreach ($states as $key => $state)
+  @foreach ($vehicles as $key => $state)
   <div class="col-sm-6 col-lg-3">
     <a href="{{ route('state', $state->name) }}" class="card text-white {{ 'bg-flat-color-'. random_int(1,7) }}">
       <div class="card-body pb-0">
@@ -21,7 +21,7 @@
         <h4 class="mb-0">
           <span class="count">{{ $state->services }}</span>
         </h4>
-        <div class="w-100 py-4" style="font-size: 16px; text-wrap:nowrap; font-weight:500">Proof of Ownership</div>
+        <div class="w-100 py-4" style="font-size: 18px; text-wrap:nowrap; font-weight:500">Vehicles</div>
 
         {{-- <div class="chart-wrapper px-0" style="height:70px;" height="70">
           <canvas id="{{ 'widgetChart'. $key+1 }}"></canvas>
@@ -93,7 +93,7 @@ new Chart("myChart", {
   options: {
     title: {
       display: true,
-      text: "SERVICES RENDERED ACCROSS THE 36 STATES IN NIGERIA"
+      text: "VEHICLES ACCROSS THE 36 STATES IN NIGERIA"
     }
   }
 });
