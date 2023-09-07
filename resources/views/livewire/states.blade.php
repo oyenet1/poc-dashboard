@@ -32,7 +32,7 @@
                 @endfor
                 </select> --}}
             </p>
-            <div class="">
+            <div class="chartDo" style="width: 100%; max-width:600px">
                 <canvas id="myChart"></canvas>
             </div>
         </div>

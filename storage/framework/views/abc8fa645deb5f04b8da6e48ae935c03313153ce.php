@@ -31,7 +31,7 @@
                 <span class="rounded p-2" style="font-size:20px;">Total: <?php echo e($total); ?></span>
                 
             </p>
-            <div class="">
+            <div class="" style="width: 100%; max-width:600px">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
